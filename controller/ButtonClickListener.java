@@ -33,9 +33,27 @@ public class ButtonClickListener implements ActionListener {
 							"\nMonthly Payment: $" + panel.getStudentLoan().getMonthlyPayment());
 		} else if(button == panel.getExtra50Button()) {
 			panel.getStudentLoan().extra50();
-			panel.getDisplay().setText("By paying $50 extra a month, you'll pay off your loan in " 
+
+			if(panel.getStudentLoan().getMonths() == 0) {
+				panel.getDisplay().setText(m + "By paying $50 extra a month, you'll pay off your loan in " 
+										+ panel.getStudentLoan().getYears() + " years ");
+			} else {
+				panel.getDisplay().setText(m + "By paying $50 extra a month, you'll pay off your loan in " 
 										+ panel.getStudentLoan().getYears() + " years " 
 										+ panel.getStudentLoan().getMonths() + " months");
+			}
+		
+		} else if(button == panel.getExtra100Button()) {
+			panel.getStudentLoan().extra100();
+
+			if(panel.getStudentLoan().getMonths() == 0) {
+				panel.getDisplay().setText(m + "By paying $100 extra a month, you'll pay off your loan in " 
+										+ panel.getStudentLoan().getYears() + " years ");
+			} else {
+				panel.getDisplay().setText(m + "By paying $100 extra a month, you'll pay off your loan in " 
+										+ panel.getStudentLoan().getYears() + " years " 
+										+ panel.getStudentLoan().getMonths() + " months");
+			}
 		}
 
 	}
