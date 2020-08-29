@@ -34,6 +34,13 @@ public class StudentLoan {
 	
 	}
 
+	public void coffee() {
+		timeRemaining = (int)(result / (monthlyPayment + 3)) + 1;
+		years = timeRemaining / 12;
+		months = timeRemaining % 12;
+		
+}
+
 	public void extra50() {
 			timeRemaining = (int)(result / (monthlyPayment + 50)) + 1;
 			years = timeRemaining / 12;

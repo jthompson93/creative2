@@ -23,8 +23,8 @@ public class StudentLoanSimulator {
 
 	private JFrame window;
 	private JLabel loanLabel = new JLabel("Loan Amount    ");
-	private JLabel termLabel = new JLabel("Term Length    ");
-	private JLabel interestLabel = new JLabel("Interest Amount");
+	private JLabel termLabel = new JLabel("Term Length     ");
+	private JLabel interestLabel = new JLabel("Interest Rate    ");
 
 	private JTextArea  display = new JTextArea();
 
@@ -35,6 +35,7 @@ public class StudentLoanSimulator {
 	private JButton computeButton = new JButton("Compute");
 	private JButton extra50Button = new JButton("Extra $50");
 	private JButton extra100Button = new JButton("Extra $100");
+	private JButton coffeeButton = new JButton("Coffee");
 
 
 	public StudentLoanSimulator(JFrame window) {
@@ -52,7 +53,7 @@ public class StudentLoanSimulator {
 		var scrollPane = new JScrollPane(display, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
 			JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 
-		scrollPane.setPreferredSize(new Dimension(500,500));
+		scrollPane.setPreferredSize(new Dimension(500,200));
 		cp.add(BorderLayout.CENTER, scrollPane);
 
 		JPanel northPanel = new JPanel();
@@ -80,6 +81,7 @@ public class StudentLoanSimulator {
 		northPanel.add(row4);
 
 		JPanel row5 = new JPanel();
+		row5.add(coffeeButton);
 		row5.add(extra50Button);
 		row5.add(extra100Button);
 		northPanel.add(row5);
@@ -87,6 +89,7 @@ public class StudentLoanSimulator {
 
 		ButtonClickListener buttonClickListener = new ButtonClickListener(this);
 		computeButton.addActionListener(buttonClickListener);
+		coffeeButton.addActionListener(buttonClickListener);
 		extra50Button.addActionListener(buttonClickListener);
 		extra100Button.addActionListener(buttonClickListener);
 
@@ -112,6 +115,9 @@ public class StudentLoanSimulator {
 
 	public JButton getComputeButton() {
 		return computeButton;
+	}
+	public JButton getCoffeeButton() {
+		return coffeeButton;
 	}
 	public JButton getExtra50Button() {
 		return extra50Button;
