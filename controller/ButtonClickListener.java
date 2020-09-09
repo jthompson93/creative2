@@ -102,6 +102,17 @@ public class ButtonClickListener implements ActionListener {
 			}
 		button1Click += 1;
 			}
+		} else if(button == panel.getClearButton()) {
+			panel.setOptions(StudentLoanSimulator.Options.NONE);
+			panel.getInterestField().setText("");
+			panel.getLoanField().setText("");
+			panel.getTermField().setText("");
+			panel.getDisplay().setText("");
+			panel.getStudentLoanCanvas().repaint();
+			button1Click = 0; 
+			button2Click = 0;
+			button3Click = 0;
+
 		}
 
 	}

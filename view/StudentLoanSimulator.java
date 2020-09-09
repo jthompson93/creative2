@@ -40,6 +40,8 @@ public class StudentLoanSimulator {
 	private JTextField interestField = new JTextField(15);
 
 	private JButton computeButton = new JButton("Compute");
+	private JButton clearButton = new JButton("Clear");
+
 	private JButton extra50Button = new JButton("Extra $50");
 	private JButton extra100Button = new JButton("Extra $100");
 	private JButton coffeeButton = new JButton("Coffee");
@@ -90,6 +92,7 @@ public class StudentLoanSimulator {
 
 		JPanel row4 = new JPanel();
 		row4.add(computeButton);
+		row4.add(clearButton);
 		northPanel.add(row4);
 
 		JPanel row5 = new JPanel();
@@ -101,6 +104,7 @@ public class StudentLoanSimulator {
 
 		ButtonClickListener buttonClickListener = new ButtonClickListener(this);
 		computeButton.addActionListener(buttonClickListener);
+		clearButton.addActionListener(buttonClickListener);
 		coffeeButton.addActionListener(buttonClickListener);
 		extra50Button.addActionListener(buttonClickListener);
 		extra100Button.addActionListener(buttonClickListener);
@@ -136,6 +140,9 @@ public class StudentLoanSimulator {
 	}
 	public JButton getExtra100Button() {
 		return extra100Button;
+	}
+	public JButton getClearButton() {
+		return clearButton;
 	}
 	public JTextArea getDisplay() {
 		return display;

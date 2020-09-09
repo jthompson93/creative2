@@ -36,14 +36,8 @@ public class StudentLoanCanvas extends JPanel {
 		g2.setColor(Color.white);
 		g2.setFont(new Font("Courier", Font.BOLD, 14));
 		g2.drawString("ENTER LOAN DETAILS", 125, 125);
-		//g2.drawRect(50, 50, 50, 150);
-		}
-		// g2.setColor(Color.white);
-		// g2.setFont(new Font("Courier", Font.BOLD, 14));
-		// g2.drawString("TIME", 50, 40);
-		// g2.drawString("TIME SAVED", 35, 220);
-		// g2.drawRect(50, 50, 50, 150);
-		if(state == StudentLoanSimulator.Options.FULL) {
+	
+		} else if(state == StudentLoanSimulator.Options.FULL) {
 			g2.setColor(Color.white);
 			g2.setFont(new Font("Courier", Font.BOLD, 14));
 			g2.drawString("TIME REMAINING", 70, 40);
