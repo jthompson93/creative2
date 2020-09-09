@@ -21,7 +21,14 @@ public class StudentLoanSimulator {
 
 	private StudentLoan studentLoan = new StudentLoan();
 
+	public enum Options {
+	  NONE,FULL ,COFFEE, FIFTY, HUNDRED
+	}
+
 	private JFrame window;
+
+	private StudentLoanCanvas canvas;
+
 	private JLabel loanLabel = new JLabel("Loan Amount    ");
 	private JLabel termLabel = new JLabel("Term Length     ");
 	private JLabel interestLabel = new JLabel("Interest Rate    ");
@@ -36,6 +43,7 @@ public class StudentLoanSimulator {
 	private JButton extra50Button = new JButton("Extra $50");
 	private JButton extra100Button = new JButton("Extra $100");
 	private JButton coffeeButton = new JButton("Coffee");
+	private Options options = Options.NONE;
 
 
 	public StudentLoanSimulator(JFrame window) {
@@ -50,14 +58,18 @@ public class StudentLoanSimulator {
 	public void init() {
 		
 		Container cp = window.getContentPane();
+		
 		var scrollPane = new JScrollPane(display, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
 			JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 
-		scrollPane.setPreferredSize(new Dimension(500,200));
-		cp.add(BorderLayout.CENTER, scrollPane);
+		scrollPane.setPreferredSize(new Dimension(400,200));
+		cp.add(BorderLayout.WEST, scrollPane);
 
 		JPanel northPanel = new JPanel();
 		cp.add(BorderLayout.NORTH, northPanel);
+
+		canvas = new StudentLoanCanvas(this);
+		cp.add(BorderLayout.EAST, canvas);
 
 		northPanel.setLayout(new GridLayout(5,1));
 		JPanel row1 = new JPanel();
@@ -127,5 +139,17 @@ public class StudentLoanSimulator {
 	}
 	public JTextArea getDisplay() {
 		return display;
+	}
+
+	public StudentLoanCanvas getStudentLoanCanvas() {
+		return canvas;
+	}
+
+	public Options getOptions() {
+		return options;
+	}
+
+	public void setOptions(Options state) {
+		this.options = state;
 	}
 }

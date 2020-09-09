@@ -11,6 +11,8 @@ public class StudentLoan {
 	private int timeRemaining;
 	private int years;
 	private int months;
+	private double totalTime;
+	private double adjustedTime;
 	//private double dailyInterest;
 	//private int months;
 
@@ -31,6 +33,8 @@ public class StudentLoan {
 			result = Math.round(result * 100) / 100.0;
 			monthlyPayment = result / ((int)loanTerm * 12);
 			monthlyPayment = Math.round(monthlyPayment * 100) / 100.0;
+			timeRemaining = (int)(result / (monthlyPayment));
+			totalTime = timeRemaining;
 	
 	}
 
@@ -38,6 +42,8 @@ public class StudentLoan {
 		timeRemaining = (int)(result / (monthlyPayment + 3)) + 1;
 		years = timeRemaining / 12;
 		months = timeRemaining % 12;
+		Double computeTime = (double)timeRemaining;
+		adjustedTime = (computeTime / totalTime) * 150.0;
 		
 }
 
@@ -45,6 +51,8 @@ public class StudentLoan {
 			timeRemaining = (int)(result / (monthlyPayment + 50)) + 1;
 			years = timeRemaining / 12;
 			months = timeRemaining % 12;
+			Double computeTime = (double)timeRemaining;
+			adjustedTime = (computeTime / totalTime) * 150.0;
 			
 	}
 
@@ -52,7 +60,17 @@ public class StudentLoan {
 			timeRemaining = (int)(result / (monthlyPayment + 100)) + 1;
 			years = timeRemaining / 12;
 			months = timeRemaining % 12;
+			Double computeTime = (double)timeRemaining;
+			adjustedTime = (computeTime / totalTime) * 150.0;
 			 
+	}
+
+	public int getTotalTime() {
+		return (int)totalTime;
+	}
+
+	public int getAdjustedTime() {
+		return (int)adjustedTime;
 	}
 
 	public double getResult() {
